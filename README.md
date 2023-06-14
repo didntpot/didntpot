@@ -10,5 +10,5 @@ https://www.buymeacoffee.com/DidntPot
 
 ## Discord
 <a href="https://discord.com/users/673489564962258944">
-  <img src="https://lanyard-profile-readme.vercel.app/api/673489564962258944" align="left" />
+  <img src="https://lanyard-profile-readme-nyria.vercel.app/api/673489564962258944?hideDiscrim=true&animated=true&borderRadius=8px" align="left" />
 </a>
