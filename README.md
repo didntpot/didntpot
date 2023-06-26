@@ -5,10 +5,8 @@
 ![](https://github.com/DidntPot/DidntPot/blob/master/generated/overview.svg#gh-dark-mode-only)
 ![](https://github.com/DidntPot/DidntPot/blob/master/generated/languages.svg#gh-dark-mode-only)
 
-## Sponser
-https://www.buymeacoffee.com/DidntPot
-
 ## Discord
-<a href="https://discord.com/users/673489564962258944">
-  <img src="https://lanyard-profile-readme-nyria.vercel.app/api/673489564962258944?hideDiscrim=true&animated=true&borderRadius=8px" align="left" />
+<a href="https://www.buymeacoffee.com/DidntPot">
+  <img src="https://lanyard-profile-readme-nyria.vercel.app/api/318272839918813184?hideDiscrim=true&animated=true&borderRadius=8px" align="left" />
+  <img src="https://lanyard-profile-readme-nyria.vercel.app/api/673489564962258944?hideDiscrim=true&animated=true&borderRadius=8px" align="centre" />
 </a>
