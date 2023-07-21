@@ -7,5 +7,5 @@
 
 ## Discord
 <a href="https://www.buymeacoffee.com/DidntPot">
-  <img src="https://lanyard-profile-readme-nyria.vercel.app/api/318272839918813184?hideDiscrim=true&animated=true&borderRadius=8px" align="centre" />
+  <img src="https://api.status.gg/discord/318272839918813184" align="centre" />
 </a>
