@@ -45,8 +45,8 @@
 
 <h2 align="center"> Discord</h2>
 <p align="center">
-  <a href="https://github.com/didntpot">
-    <img src="https://lanyard-profile-readme-nyria.vercel.app/api/573826140976840714?hideDiscrim=true&animated=true&borderRadius=8px" align="centre" />
+  <a href="https://discord.com/users/573826140976840714">
+    <img src="https://lanyard-profile-readme.vercel.app/api/573826140976840714" align="center" />
   </a>
 </p>
 <hr>
