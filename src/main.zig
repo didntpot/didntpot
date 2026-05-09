@@ -45,6 +45,7 @@ const Args = struct {
     exclude_repos: ?[]const u8 = null,
     exclude_langs: ?[]const u8 = null,
     exclude_private: bool = false,
+    owned_only: bool = false,
     overview_output_file: ?[]const u8 = null,
     languages_output_file: ?[]const u8 = null,
     overview_template: ?[]const u8 = null,
@@ -227,6 +228,7 @@ pub fn main(init: std.process.Init) !void {
             allocator,
             io,
             args.max_retries,
+            args.owned_only,
         );
     } else unreachable;
     defer stats.deinit(allocator);

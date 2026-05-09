@@ -117,11 +117,12 @@ pub fn init(
     allocator: std.mem.Allocator,
     io: std.Io,
     max_retries: ?usize,
+    owned_only: bool,
 ) !Statistics {
     var arena = std.heap.ArenaAllocator.init(allocator);
     defer arena.deinit();
 
-    var self: Statistics = try getRepos(allocator, &arena, client);
+    var self: Statistics = try getRepos(allocator, &arena, client, owned_only);
     errdefer self.deinit(allocator);
     try self.getLinesChanged(&arena, io, client, max_retries);
     return self;
@@ -237,6 +238,7 @@ fn getReposByYear(
         arena: *std.heap.ArenaAllocator,
         client: *HttpClient,
         user: []const u8,
+        owned_only: bool,
         result: *Statistics,
         seen: *std.StringHashMap(bool),
         repositories: *std.ArrayList(Repository),
@@ -386,6 +388,25 @@ fn getReposByYear(
             );
             continue;
         }
+        if (context.owned_only) {
+            const slash = std.mem.indexOfScalar(
+                u8,
+                raw_repo.nameWithOwner,
+                '/',
+            ) orelse continue;
+            if (!std.mem.eql(
+                u8,
+                raw_repo.nameWithOwner[0..slash],
+                context.user,
+            )) {
+                std.log.debug(
+                    "Skipping {s} (not owned by {s})",
+                    .{ raw_repo.nameWithOwner, context.user },
+                );
+                try context.seen.put(raw_repo.nameWithOwner, true);
+                continue;
+            }
+        }
         var repository = Repository{
             .name = try context.allocator.dupe(u8, raw_repo.nameWithOwner),
             .stars = raw_repo.stargazerCount,
@@ -475,6 +496,7 @@ fn getRepos(
     allocator: std.mem.Allocator,
     arena: *std.heap.ArenaAllocator,
     client: *HttpClient,
+    owned_only: bool,
 ) !Statistics {
     var result: Statistics = .{
         .user = undefined,
@@ -527,6 +549,7 @@ fn getRepos(
             .arena = arena,
             .client = client,
             .user = info.user,
+            .owned_only = owned_only,
             .result = &result,
             .seen = &seen,
             .repositories = &repositories,
